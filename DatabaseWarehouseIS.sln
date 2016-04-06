@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DatabaseWarehouseIS", "DatabaseWarehouseIS\DatabaseWarehouseIS.dtproj", "{EAA774E3-1865-44B9-8065-B040D95E9E85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XMLSourceDesigners", "XMLSourceDesigners", "{DCBA4A17-AAFC-4D8B-A785-2E3F0D4B64F0}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Downloads\superuser.com\092013 dbo\Badges.xsd = ..\..\..\..\Downloads\superuser.com\092013 dbo\Badges.xsd
+		..\..\..\..\Downloads\superuser.com\092013 dbo\Comments.xsd = ..\..\..\..\Downloads\superuser.com\092013 dbo\Comments.xsd
+		..\..\..\..\Downloads\superuser.com\092013 dbo\PostHistory.xsd = ..\..\..\..\Downloads\superuser.com\092013 dbo\PostHistory.xsd
+		..\..\..\..\Downloads\superuser.com\092013 dbo\PostLinks.xsd = ..\..\..\..\Downloads\superuser.com\092013 dbo\PostLinks.xsd
+		..\..\..\..\Downloads\superuser.com\092013 dbo\Posts.xsd = ..\..\..\..\Downloads\superuser.com\092013 dbo\Posts.xsd
+		..\..\..\..\Downloads\superuser.com\092013 dbo\Tags.xsd = ..\..\..\..\Downloads\superuser.com\092013 dbo\Tags.xsd
+		..\..\..\..\Downloads\superuser.com\092013 dbo\Users.xsd = ..\..\..\..\Downloads\superuser.com\092013 dbo\Users.xsd
+		..\..\..\..\Downloads\superuser.com\092013 dbo\Votes.xsd = ..\..\..\..\Downloads\superuser.com\092013 dbo\Votes.xsd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAA774E3-1865-44B9-8065-B040D95E9E85}.Development|Default.ActiveCfg = Development
+		{EAA774E3-1865-44B9-8065-B040D95E9E85}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
