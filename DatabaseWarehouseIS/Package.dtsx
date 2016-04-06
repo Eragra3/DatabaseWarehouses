@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{67400D7B-1E72-4D7E-84EE-FC0C0B20173C}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{4FBFF2F8-710B-471E-A9BD-33CC2A340B3D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1520,7 +1520,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\Badges.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\Badges.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -1784,7 +1784,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\Comments.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\Comments.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -2015,7 +2015,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\PostHistory.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\PostHistory.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -2246,7 +2246,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\PostLinks.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\PostLinks.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -2477,7 +2477,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\Posts.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\Posts.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -3058,7 +3058,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\Tags.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\Tags.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -3291,7 +3291,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\Users.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\Users.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -3731,7 +3731,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\Votes.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\Votes.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -4035,92 +4035,68 @@
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="134,42"
-          Id="Package\Data Flow Task\XML Source"
-          TopLeft="74,34" />
+          Id="Package\Data Flow Task\XML Source 1 1 1 1 1"
+          TopLeft="491,241" />
         <NodeLayout
           Size="134,42"
-          Id="Package\Data Flow Task\XML Source 1"
-          TopLeft="301,31" />
+          Id="Package\Data Flow Task\XML Source 1 1 1 1 1 1 1"
+          TopLeft="291,450" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Data Flow Task\Comments"
+          TopLeft="303,133" />
         <NodeLayout
           Size="134,42"
           Id="Package\Data Flow Task\XML Source 1 1"
           TopLeft="501,22" />
         <NodeLayout
-          Size="134,42"
-          Id="Package\Data Flow Task\XML Source 1 1 1"
-          TopLeft="74,245" />
+          Size="132,42"
+          Id="Package\Data Flow Task\PostHistory"
+          TopLeft="509,137" />
+        <NodeLayout
+          Size="101,42"
+          Id="Package\Data Flow Task\Tags"
+          TopLeft="506,363" />
         <NodeLayout
           Size="134,42"
           Id="Package\Data Flow Task\XML Source 1 1 1 1"
           TopLeft="288,242" />
         <NodeLayout
           Size="134,42"
-          Id="Package\Data Flow Task\XML Source 1 1 1 1 1"
-          TopLeft="491,241" />
+          Id="Package\Data Flow Task\XML Source 1 1 1"
+          TopLeft="74,245" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Data Flow Task\PostLinks"
+          TopLeft="84,351" />
+        <NodeLayout
+          Size="104,42"
+          Id="Package\Data Flow Task\Posts"
+          TopLeft="304,353" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Data Flow Task\Votes"
+          TopLeft="312,551" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Data Flow Task\XML Source 1"
+          TopLeft="301,31" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Data Flow Task\Users"
+          TopLeft="96,562" />
         <NodeLayout
           Size="134,42"
           Id="Package\Data Flow Task\XML Source 1 1 1 1 1 1"
           TopLeft="74,456" />
         <NodeLayout
-          Size="134,42"
-          Id="Package\Data Flow Task\XML Source 1 1 1 1 1 1 1"
-          TopLeft="291,450" />
-        <NodeLayout
           Size="113,42"
           Id="Package\Data Flow Task\Badges"
           TopLeft="82,137" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[row]"
-          TopLeft="139.75,76">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61"
-              Start="0,0"
-              End="0,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="129,42"
-          Id="Package\Data Flow Task\Comments"
-          TopLeft="303,133" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[row1]"
-          TopLeft="367.75,73">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="132,42"
-          Id="Package\Data Flow Task\PostHistory"
-          TopLeft="509,137" />
+          Size="134,42"
+          Id="Package\Data Flow Task\XML Source"
+          TopLeft="74,34" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[row2]"
           TopLeft="571.5,64">
@@ -4143,24 +4119,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Data Flow Task\PostLinks"
-          TopLeft="84,351" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[row3]"
-          TopLeft="143.25,287">
+          Id="Package\Data Flow Task.Paths[row1]"
+          TopLeft="367.75,73">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,64"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,56.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4169,24 +4141,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="104,42"
-          Id="Package\Data Flow Task\Posts"
-          TopLeft="304,353" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[row4]"
-          TopLeft="355.5,284">
+          Id="Package\Data Flow Task.Paths[row]"
+          TopLeft="139.75,76">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69"
+              EndConnector="0,61"
               Start="0,0"
-              End="0,61.5">
+              End="0,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.5" />
+                    End="0,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4195,62 +4163,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="101,42"
-          Id="Package\Data Flow Task\Tags"
-          TopLeft="506,363" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[row5]"
-          TopLeft="557.25,283">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80"
-              Start="0,0"
-              End="0,72.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="105,42"
-          Id="Package\Data Flow Task\Users"
-          TopLeft="96,562" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[row6]"
-          TopLeft="144.75,498">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64"
-              Start="0,0"
-              End="0,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="105,42"
-          Id="Package\Data Flow Task\Votes"
-          TopLeft="312,551" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[row7]"
           TopLeft="361.25,492">
@@ -4273,22 +4185,97 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[row6]"
+          TopLeft="144.75,498">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[row5]"
+          TopLeft="557.25,283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80"
+              Start="0,0"
+              End="0,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[row4]"
+          TopLeft="355.5,284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[row3]"
+          TopLeft="143.25,287">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Badges">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Comments">
     <Properties>
@@ -4304,6 +4291,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\PostHistory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Tags">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4342,7 +4342,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Tags">
+    design-time-name="Package\Data Flow Task\Votes">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4368,7 +4368,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Votes">
+    design-time-name="Package\Data Flow Task\Badges">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
