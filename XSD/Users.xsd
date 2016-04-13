@@ -8,14 +8,7 @@
             <xs:attribute name="Id" type="xs:int" use="optional" />
             <xs:attribute name="Reputation" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="CreationDate" type="xs:dateTime" use="optional" />
-            <xs:attribute name="DisplayName" type="xs:string" use="optional" />
-            <xs:attribute name="LastAccessDate" type="xs:dateTime" use="optional" />
-            <xs:attribute name="WebsiteUrl" type="xs:string" use="optional" />
             <xs:attribute name="Location" type="xs:string" use="optional" />
-            <xs:attribute name="Views" type="xs:unsignedShort" use="optional" />
-            <xs:attribute name="UpVotes" type="xs:unsignedShort" use="optional" />
-            <xs:attribute name="DownVotes" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="AccountId" type="xs:int" use="optional" />
             <xs:attribute name="Age" type="xs:unsignedByte" use="optional" />
           </xs:complexType>
         </xs:element>
