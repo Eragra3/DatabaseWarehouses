@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{55F480D9-38D7-4AD5-BB58-F2A7B18EAA12}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{3BE1E0B6-8C70-4096-8AC2-21805430C29A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4806,15 +4806,15 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">true</property>
+                  name="FastLoadKeepIdentity">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 5000</property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -4954,6 +4954,237 @@
               </outputs>
             </component>
             <component
+              refId="Package\Create warehouse DB\PostHistory"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+              name="PostHistory"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                <property
+                  dataType="System.String"
+                  description="The XML data used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLData">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\PostHistory.xml</property>
+                <property
+                  dataType="System.String"
+                  description="The variable used by the XML source adapter to specify XML data."
+                  name="XMLDataVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how the XML source adapter gets XML data."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The XML schema definition used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\PostHistory.xsd</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Identifies whether or not to use inline schema."
+                  name="UseInlineSchema">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how XML integer types are mapped."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Create warehouse DB\PostHistory.Outputs[row]"
+                  name="row">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">row</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[Id]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[Id]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[PostHistoryTypeId]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[PostHistoryTypeId]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[PostHistoryTypeId]"
+                      name="PostHistoryTypeId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[PostId]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[PostId]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[PostId]"
+                      name="PostId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[CreationDate]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[CreationDate]"
+                      name="CreationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[UserId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[UserId]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[UserId]"
+                      name="UserId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[Id]"
+                      dataType="ui4"
+                      name="Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[PostHistoryTypeId]"
+                      dataType="ui1"
+                      name="PostHistoryTypeId">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[PostId]"
+                      dataType="ui4"
+                      name="PostId">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      name="CreationDate">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.DateTime</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row].ExternalColumns[UserId]"
+                      dataType="i4"
+                      name="UserId">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Int32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output]"
+                  isErrorOut="true"
+                  name="row Error Output">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">row</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[Id]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[PostHistoryTypeId]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[PostHistoryTypeId]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[PostHistoryTypeId]"
+                      name="PostHistoryTypeId" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[PostId]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[PostId]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[PostId]"
+                      name="PostId" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[CreationDate]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[CreationDate]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[CreationDate]"
+                      name="CreationDate" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[UserId]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[UserId]"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[UserId]"
+                      name="UserId" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[Id]"
+                      dataType="nText"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[PostHistoryTypeId]"
+                      dataType="nText"
+                      name="PostHistoryTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[PostId]"
+                      dataType="nText"
+                      name="PostId" />
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[CreationDate]"
+                      dataType="nText"
+                      name="CreationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Create warehouse DB\PostHistory.Outputs[row Error Output].ExternalColumns[UserId]"
+                      dataType="nText"
+                      name="UserId" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Create warehouse DB\PostHistoryActionType"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -5024,208 +5255,6 @@
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Create warehouse DB\PostHistoryXml"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
-              name="PostHistoryXml"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
-                <property
-                  dataType="System.String"
-                  description="The XML data used by the XML source adapter."
-                  expressionType="Notify"
-                  name="XMLData">C:\Users\Daniel Bider\Downloads\superuser.com\092013 dbo\PostHistory.xml</property>
-                <property
-                  dataType="System.String"
-                  description="The variable used by the XML source adapter to specify XML data."
-                  name="XMLDataVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Defines how the XML source adapter gets XML data."
-                  name="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The XML schema definition used by the XML source adapter."
-                  expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\Daniel Bider\Source\Repos\DatabaseWarehouses\XSD\PostHistory.xsd</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Identifies whether or not to use inline schema."
-                  name="UseInlineSchema">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Defines how XML integer types are mapped."
-                  name="XMLIntegerMapping"
-                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
-              </properties>
-              <outputs>
-                <output
-                  refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row]"
-                  name="row">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Identifies the rowset associated with the output."
-                      name="RowsetID">row</property>
-                  </properties>
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[PostHistoryTypeId]"
-                      dataType="ui1"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].ExternalColumns[PostHistoryTypeId]"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[PostHistoryTypeId]"
-                      name="PostHistoryTypeId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[PostId]"
-                      dataType="ui4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].ExternalColumns[PostId]"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[PostId]"
-                      name="PostId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[CreationDate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].ExternalColumns[CreationDate]"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[CreationDate]"
-                      name="CreationDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[UserId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].ExternalColumns[UserId]"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[UserId]"
-                      name="UserId"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].ExternalColumns[PostHistoryTypeId]"
-                      dataType="ui1"
-                      name="PostHistoryTypeId">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="CLRType">System.Byte</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].ExternalColumns[PostId]"
-                      dataType="ui4"
-                      name="PostId">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="CLRType">System.UInt32</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].ExternalColumns[CreationDate]"
-                      dataType="dbTimeStamp"
-                      name="CreationDate">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="CLRType">System.DateTime</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].ExternalColumns[UserId]"
-                      dataType="i4"
-                      name="UserId">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="CLRType">System.Int32</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output]"
-                  isErrorOut="true"
-                  name="row Error Output">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Identifies the rowset associated with the output."
-                      name="RowsetID">row</property>
-                  </properties>
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[PostHistoryTypeId]"
-                      dataType="nText"
-                      externalMetadataColumnId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].ExternalColumns[PostHistoryTypeId]"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[PostHistoryTypeId]"
-                      name="PostHistoryTypeId" />
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[PostId]"
-                      dataType="nText"
-                      externalMetadataColumnId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].ExternalColumns[PostId]"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[PostId]"
-                      name="PostId" />
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[CreationDate]"
-                      dataType="nText"
-                      externalMetadataColumnId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].ExternalColumns[CreationDate]"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[CreationDate]"
-                      name="CreationDate" />
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[UserId]"
-                      dataType="nText"
-                      externalMetadataColumnId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].ExternalColumns[UserId]"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[UserId]"
-                      name="UserId" />
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].ExternalColumns[PostHistoryTypeId]"
-                      dataType="nText"
-                      name="PostHistoryTypeId" />
-                    <externalMetadataColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].ExternalColumns[PostId]"
-                      dataType="nText"
-                      name="PostId" />
-                    <externalMetadataColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].ExternalColumns[CreationDate]"
-                      dataType="nText"
-                      name="CreationDate" />
-                    <externalMetadataColumn
-                      refId="Package\Create warehouse DB\PostHistoryXml.Outputs[row Error Output].ExternalColumns[UserId]"
-                      dataType="nText"
-                      name="UserId" />
-                  </externalMetadataColumns>
                 </output>
               </outputs>
             </component>
@@ -5529,6 +5558,13 @@
               version="1">
               <inputs>
                 <input
+                  refId="Package\Create warehouse DB\Union All.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+                <input
                   refId="Package\Create warehouse DB\Union All.Inputs[Union All Input 1]"
                   name="Union All Input 1">
                   <inputColumns>
@@ -5536,7 +5572,7 @@
                       refId="Package\Create warehouse DB\Union All.Inputs[Union All Input 1].Columns[PostId]"
                       cachedDataType="ui4"
                       cachedName="PostId"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[PostId]">
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[PostId]">
                       <properties>
                         <property
                           containsID="true"
@@ -5549,7 +5585,7 @@
                       refId="Package\Create warehouse DB\Union All.Inputs[Union All Input 1].Columns[CreationDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CreationDate"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[CreationDate]">
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[CreationDate]">
                       <properties>
                         <property
                           containsID="true"
@@ -5562,7 +5598,7 @@
                       refId="Package\Create warehouse DB\Union All.Inputs[Union All Input 1].Columns[UserId]"
                       cachedDataType="i4"
                       cachedName="UserId"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[UserId]">
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[UserId]">
                       <properties>
                         <property
                           containsID="true"
@@ -5589,7 +5625,7 @@
                       refId="Package\Create warehouse DB\Union All.Inputs[Union All Input 1].Columns[PostHistoryTypeId]"
                       cachedDataType="ui1"
                       cachedName="PostHistoryTypeId"
-                      lineageId="Package\Create warehouse DB\PostHistoryXml.Outputs[row].Columns[PostHistoryTypeId]">
+                      lineageId="Package\Create warehouse DB\PostHistory.Outputs[row].Columns[PostHistoryTypeId]">
                       <properties>
                         <property
                           containsID="true"
@@ -5760,13 +5796,6 @@
                       </properties>
                     </inputColumn>
                   </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Create warehouse DB\Union All.Inputs[Union All Input 4]"
-                  dangling="true"
-                  hasSideEffects="true"
-                  name="Union All Input 4">
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -6422,19 +6451,19 @@
               startId="Package\Create warehouse DB\PostsXml.Outputs[row]" />
             <path
               refId="Package\Create warehouse DB.Paths[row2]"
-              endId="Package\Create warehouse DB\PostHistoryActionType.Inputs[Derived Column Input]"
-              name="row"
-              startId="Package\Create warehouse DB\PostHistoryXml.Outputs[row]" />
-            <path
-              refId="Package\Create warehouse DB.Paths[row3]"
               endId="Package\Create warehouse DB\VoteActionType.Inputs[Derived Column Input]"
               name="row"
               startId="Package\Create warehouse DB\VotesXml.Outputs[row]" />
             <path
-              refId="Package\Create warehouse DB.Paths[row4]"
+              refId="Package\Create warehouse DB.Paths[row3]"
               endId="Package\Create warehouse DB\CommentActionType.Inputs[Derived Column Input]"
               name="row"
               startId="Package\Create warehouse DB\CommentsXml.Outputs[row]" />
+            <path
+              refId="Package\Create warehouse DB.Paths[row4]"
+              endId="Package\Create warehouse DB\PostHistoryActionType.Inputs[Derived Column Input]"
+              name="row"
+              startId="Package\Create warehouse DB\PostHistory.Outputs[row]" />
             <path
               refId="Package\Create warehouse DB.Paths[Union All Output 1]"
               endId="Package\Create warehouse DB\FactPostAction.Inputs[OLE DB Destination Input]"
@@ -6936,25 +6965,9 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="147,42"
-          Id="Package\Create warehouse DB\CommentsXml"
-          TopLeft="719,43.5714285714285" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Create warehouse DB\PostHistoryXml"
-          TopLeft="334.714285714286,48.857142857143" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Create warehouse DB\PostsXml"
-          TopLeft="177.428571428571,45.9999999999992" />
-        <NodeLayout
           Size="123,42"
           Id="Package\Create warehouse DB\UsersXml"
           TopLeft="26.2857142857143,49.9999999999992" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Create warehouse DB\VotesXml"
-          TopLeft="539,52.5714285714278" />
         <NodeLayout
           Size="119,42"
           Id="Package\Create warehouse DB\DimUser"
@@ -6982,9 +6995,45 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
+          Size="148,42"
+          Id="Package\Create warehouse DB\FactPostAction"
+          TopLeft="524.5,470.928571428571" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Create warehouse DB\Union All"
+          TopLeft="535.928571428572,353.785714285714" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Create warehouse DB\Data Conversion"
+          TopLeft="717.357142857143,208.071428571429" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Create warehouse DB\CommentActionType"
+          TopLeft="705.928571428572,122.357142857143" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Create warehouse DB\VoteActionType"
+          TopLeft="517.357142857143,203.785714285714" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Create warehouse DB\PostHistoryActionType"
+          TopLeft="314.5,200.928571428572" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Create warehouse DB\VotesXml"
+          TopLeft="539.214285714286,63.4999999999993" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Create warehouse DB\CommentsXml"
+          TopLeft="719.214285714286,54.5" />
+        <NodeLayout
           Size="118,42"
           Id="Package\Create warehouse DB\DimPost"
           TopLeft="175.714285714286,124.285714285714" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Create warehouse DB\PostsXml"
+          TopLeft="177.428571428571,45.9999999999992" />
         <EdgeLayout
           Id="Package\Create warehouse DB.Paths[row1]"
           TopLeft="236.321428571429,87.9999999999992">
@@ -7007,39 +7056,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="184,42"
-          Id="Package\Create warehouse DB\PostHistoryActionType"
-          TopLeft="314.285714285714,190" />
         <EdgeLayout
           Id="Package\Create warehouse DB.Paths[row2]"
-          TopLeft="408,90.857142857143">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,99.1428571428571"
-              Start="0,0"
-              End="0,91.6428571428571">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,91.6428571428571" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Create warehouse DB\VoteActionType"
-          TopLeft="517.142857142857,192.857142857143" />
-        <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[row3]"
-          TopLeft="596.821428571428,94.5714285714278">
+          TopLeft="597.035714285714,105.499999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7059,13 +7078,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Create warehouse DB\CommentActionType"
-          TopLeft="705.714285714286,111.428571428571" />
         <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[row4]"
-          TopLeft="793.107142857143,85.5714285714285">
+          Id="Package\Create warehouse DB.Paths[row3]"
+          TopLeft="793.321428571429,96.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7085,13 +7100,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Create warehouse DB\Data Conversion"
-          TopLeft="717.142857142857,197.142857142857" />
         <EdgeLayout
           Id="Package\Create warehouse DB.Paths[Derived Column Output]"
-          TopLeft="794.428571428572,153.428571428571">
+          TopLeft="794.642857142857,164.357142857143">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7111,13 +7122,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Create warehouse DB\Union All"
-          TopLeft="535.714285714286,342.857142857143" />
         <EdgeLayout
           Id="Package\Create warehouse DB.Paths[Derived Column Output1]"
-          TopLeft="406.285714285714,232">
+          TopLeft="406.5,242.928571428572">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7151,7 +7158,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Create warehouse DB.Paths[Derived Column Output2]"
-          TopLeft="594.678571428571,234.857142857143">
+          TopLeft="594.892857142857,245.785714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7173,7 +7180,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Create warehouse DB.Paths[Data Conversion Output]"
-          TopLeft="795.142857142857,239.142857142857">
+          TopLeft="795.357142857143,250.071428571429">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7205,13 +7212,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="148,42"
-          Id="Package\Create warehouse DB\FactPostAction"
-          TopLeft="524.285714285714,460" />
         <EdgeLayout
           Id="Package\Create warehouse DB.Paths[Union All Output 1]"
-          TopLeft="597.25,384.857142857143">
+          TopLeft="597.464285714286,395.785714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7231,37 +7234,37 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Create warehouse DB\PostHistory"
+          TopLeft="335.714285714286,67.1428571428572" />
+        <EdgeLayout
+          Id="Package\Create warehouse DB.Paths[row4]"
+          TopLeft="404.107142857143,109.142857142857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,91.7857142857144"
+              Start="0,0"
+              End="0,84.2857142857144">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,84.2857142857144" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Create warehouse DB\DimUser">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Create warehouse DB\DimPost">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Create warehouse DB\FactPostAction">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
