@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>DatabaseWarehouseIS</Name>
-    <LastWriteTime>2016-04-13T19:40:02.7542899Z</LastWriteTime>
+    <LastWriteTime>2016-05-04T16:04:22.3626922Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2016-04-27T20:55:59.1788343Z</LastWriteTime>
+      <LastWriteTime>2016-05-05T05:58:30.8896816Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
