@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="108"
-  DTS:VersionGUID="{AD6C8A67-9A1B-4AF8-9BEE-8929E27F2E2E}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{F20F9D60-49FB-4389-8857-E7F9B3DE5751}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -11450,24 +11450,24 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\Create warehouse DB\Multicast.Outputs[Multicast Output 4]" />
             <path
               refId="Package\Create warehouse DB.Paths[Output 03]"
-              endId="Package\Create warehouse DB\FactPostAction.Inputs[OLE DB Destination Input]"
+              endId="Package\Create warehouse DB\Multicast.Inputs[Multicast Input 1]"
               name="Output 0"
-              startId="Package\Create warehouse DB\Extract Time Post Actions.Outputs[Output 0]" />
+              startId="Package\Create warehouse DB\Split location.Outputs[Output 0]" />
             <path
               refId="Package\Create warehouse DB.Paths[Output 02]"
-              endId="Package\Create warehouse DB\DimPost.Inputs[OLE DB Destination Input]"
-              name="Output 0"
-              startId="Package\Create warehouse DB\Extract Time Posts.Outputs[Output 0]" />
-            <path
-              refId="Package\Create warehouse DB.Paths[Output 01]"
               endId="Package\Create warehouse DB\Split location.Inputs[Input 0]"
               name="Output 0"
               startId="Package\Create warehouse DB\Extract Time Users.Outputs[Output 0]" />
             <path
-              refId="Package\Create warehouse DB.Paths[Output 0]"
-              endId="Package\Create warehouse DB\Multicast.Inputs[Multicast Input 1]"
+              refId="Package\Create warehouse DB.Paths[Output 01]"
+              endId="Package\Create warehouse DB\DimPost.Inputs[OLE DB Destination Input]"
               name="Output 0"
-              startId="Package\Create warehouse DB\Split location.Outputs[Output 0]" />
+              startId="Package\Create warehouse DB\Extract Time Posts.Outputs[Output 0]" />
+            <path
+              refId="Package\Create warehouse DB.Paths[Output 0]"
+              endId="Package\Create warehouse DB\FactPostAction.Inputs[OLE DB Destination Input]"
+              name="Output 0"
+              startId="Package\Create warehouse DB\Extract Time Post Actions.Outputs[Output 0]" />
             <path
               refId="Package\Create warehouse DB.Paths[row]"
               endId="Package\Create warehouse DB\VoteActionType.Inputs[Derived Column Input]"
@@ -11521,26 +11521,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Gib datetime"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{8DAD7D9F-9792-42EB-BED3-EF2F3910D083}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Gib datetime"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Remove constraints"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{AD3F35A3-8DFC-4E0D-9FEB-35DA32ECDDB2}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -11829,6 +11812,12 @@ where [refTable].[City] = ?</property>
                       cachedName="CityId"
                       externalMetadataColumnId="Package\Set users location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CityId]"
                       lineageId="Package\Set users location\Lookup.Outputs[Lookup Match Output].Columns[CityId]" />
+                    <inputColumn
+                      refId="Package\Set users location\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreationTimeId]"
+                      cachedDataType="i8"
+                      cachedName="CreationTimeId"
+                      externalMetadataColumnId="Package\Set users location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationTimeId]"
+                      lineageId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationTimeId]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -11852,6 +11841,10 @@ where [refTable].[City] = ?</property>
                       refId="Package\Set users location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CityId]"
                       dataType="i4"
                       name="CityId" />
+                    <externalMetadataColumn
+                      refId="Package\Set users location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationTimeId]"
+                      dataType="i8"
+                      name="CreationTimeId" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -12144,6 +12137,15 @@ where [refTable].[City] = ?</property>
                       lineageId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age]"
                       name="Age"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationTimeId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationTimeId]"
+                      lineageId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationTimeId]"
+                      name="CreationTimeId"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -12178,6 +12180,10 @@ where [refTable].[City] = ?</property>
                       dataType="wstr"
                       length="50"
                       name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationTimeId]"
+                      dataType="i8"
+                      name="CreationTimeId" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -12224,6 +12230,11 @@ where [refTable].[City] = ?</property>
                       dataType="dbTimeStamp"
                       lineageId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDate]"
                       name="CreationDate" />
+                    <outputColumn
+                      refId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationTimeId]"
+                      dataType="i8"
+                      lineageId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationTimeId]"
+                      name="CreationTimeId" />
                     <outputColumn
                       refId="Package\Set users location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age]"
                       dataType="ui1"
@@ -13918,22 +13929,6 @@ where [refTable].[City] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\Create warehouse DB" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
-      DTS:CreationName=""
-      DTS:DTSID="{22F1BDA8-B244-48B6-BE2C-C82A6678BE5B}"
-      DTS:From="Package\Gib datetime"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 6"
-      DTS:To="Package\Cleanup" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
-      DTS:CreationName=""
-      DTS:DTSID="{1D3ECD62-53A8-4160-8F44-DA170D81AC38}"
-      DTS:From="Package\Create warehouse DB"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 7"
-      DTS:To="Package\Gib datetime" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -14128,78 +14123,6 @@ where [refTable].[City] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Gib datetime"
-          TopLeft="245.75,284.75" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="315.25,326.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-171.583333333333,60.25"
-              Start="0,0"
-              End="-171.583333333333,52.75">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.6623102866779" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.6623102866779"
-                    Point2="0,35.6623102866779"
-                    Point3="-4,35.6623102866779" />
-                  <mssgle:LineSegment
-                    End="-167.583333333333,35.6623102866779" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-167.583333333333,35.6623102866779"
-                    Point2="-171.583333333333,35.6623102866779"
-                    Point3="-171.583333333333,39.6623102866779" />
-                  <mssgle:LineSegment
-                    End="-171.583333333333,52.75" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="169.833333333333,206.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="145.416666666667,78.25"
-              Start="0,0"
-              End="145.416666666667,70.75">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.7113910186199" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.7113910186199"
-                    Point2="0,31.7113910186199"
-                    Point3="4,31.7113910186199" />
-                  <mssgle:LineSegment
-                    End="141.416666666667,31.7113910186199" />
-                  <mssgle:CubicBezierSegment
-                    Point1="141.416666666667,31.7113910186199"
-                    Point2="145.416666666667,31.7113910186199"
-                    Point3="145.416666666667,35.7113910186199" />
-                  <mssgle:LineSegment
-                    End="145.416666666667,70.75" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <GroupLayout
           Text="Warehouse DB"
           ParentId="Package"
@@ -14223,9 +14146,6 @@ where [refTable].[City] = ?</property>
             <s:String>Package\Remove constraints</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint 5]</s:String>
-            <s:String>Package\Gib datetime</s:String>
-            <s:String>Package.PrecedenceConstraints[Constraint 6]</s:String>
-            <s:String>Package.PrecedenceConstraints[Constraint 7]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
         <NodeLayout
@@ -14852,13 +14772,21 @@ where [refTable].[City] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="156,42"
-          Id="Package\Create warehouse DB\Data Conversion"
-          TopLeft="880.023809523806,198.404761904761" />
+          Size="123,42"
+          Id="Package\Create warehouse DB\UsersXml"
+          TopLeft="101.285714285714,29.3333333333333" />
         <NodeLayout
           Size="160,42"
           Id="Package\Create warehouse DB\Distinct countries"
           TopLeft="242,406.666666666667" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Create warehouse DB\Data Conversion"
+          TopLeft="880.023809523806,198.404761904761" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Create warehouse DB\Extract Time Posts"
+          TopLeft="296.857142857143,137" />
         <NodeLayout
           Size="184,42"
           Id="Package\Create warehouse DB\PostHistoryActionType"
@@ -14872,6 +14800,10 @@ where [refTable].[City] = ?</property>
           Id="Package\Create warehouse DB\PostHistory"
           TopLeft="498.380952380954,57.4761904761884" />
         <NodeLayout
+          Size="176,42"
+          Id="Package\Create warehouse DB\CommentActionType"
+          TopLeft="868.595238095236,112.690476190478" />
+        <NodeLayout
           Size="148,42"
           Id="Package\Create warehouse DB\FactPostAction"
           TopLeft="686.916666666667,483.261904761907" />
@@ -14880,63 +14812,59 @@ where [refTable].[City] = ?</property>
           Id="Package\Create warehouse DB\Multicast"
           TopLeft="100.333333333333,310.666666666667" />
         <NodeLayout
-          Size="152,42"
-          Id="Package\Create warehouse DB\VoteActionType"
-          TopLeft="680.023809523811,194.119047619043" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Create warehouse DB\VotesXml"
-          TopLeft="701.880952380956,53.8333333333333" />
+          Size="199,42"
+          Id="Package\Create warehouse DB\Extract Time Post Actions"
+          TopLeft="656.666666666667,406.333333333334" />
         <NodeLayout
           Size="123,42"
           Id="Package\Create warehouse DB\Countries"
           TopLeft="290,501.666666666667" />
         <NodeLayout
+          Size="139,42"
+          Id="Package\Create warehouse DB\Split location"
+          TopLeft="92.1904761904761,229.595238095239" />
+        <NodeLayout
           Size="147,42"
           Id="Package\Create warehouse DB\CommentsXml"
           TopLeft="881.880952380956,44.8333333333333" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Create warehouse DB\VotesXml"
+          TopLeft="701.880952380956,53.8333333333333" />
         <NodeLayout
           Size="168,42"
           Id="Package\Create warehouse DB\Extract Time Users"
           TopLeft="76.5555555555555,126.777777777778" />
         <NodeLayout
-          Size="139,42"
-          Id="Package\Create warehouse DB\Split location"
-          TopLeft="92.1904761904761,229.595238095239" />
-        <NodeLayout
           Size="118,42"
           Id="Package\Create warehouse DB\DimPost"
           TopLeft="328.630952380953,220.619047619043" />
         <NodeLayout
-          Size="123,42"
-          Id="Package\Create warehouse DB\UsersXml"
-          TopLeft="101.285714285714,29.3333333333333" />
+          Size="119,42"
+          Id="Package\Create warehouse DB\DimUser"
+          TopLeft="101.190476190476,488.666666666667" />
         <NodeLayout
-          Size="176,42"
-          Id="Package\Create warehouse DB\CommentActionType"
-          TopLeft="868.595238095236,112.690476190478" />
+          Size="152,42"
+          Id="Package\Create warehouse DB\VoteActionType"
+          TopLeft="680.023809523811,194.119047619043" />
         <NodeLayout
           Size="121,42"
           Id="Package\Create warehouse DB\PostsXml"
           TopLeft="326.845238095238,57.0833333333333" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Create warehouse DB\DimUser"
-          TopLeft="101.190476190476,488.666666666667" />
         <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[row2]"
-          TopLeft="161.670634920635,71.3333333333333">
+          Id="Package\Create warehouse DB.Paths[Union All Output 1]"
+          TopLeft="757.130952380952,366.119047619044">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.4444444444447"
+              EndConnector="0,40.21428571429"
               Start="0,0"
-              End="0,47.9444444444447">
+              End="0,32.71428571429">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.9444444444447" />
+                    End="0,32.71428571429" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14959,6 +14887,50 @@ where [refTable].[City] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,84.2857142857174" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Create warehouse DB.Paths[row3]"
+          TopLeft="383.60119047619,99.0833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.916666666667"
+              Start="0,0"
+              End="0,30.416666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.416666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Create warehouse DB.Paths[row2]"
+          TopLeft="161.670634920635,71.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.4444444444447"
+              Start="0,0"
+              End="0,47.9444444444447">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.9444444444447" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15012,7 +14984,51 @@ where [refTable].[City] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Create warehouse DB.Paths[Output 0]"
+          TopLeft="758.541666666667,448.333333333334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.928571428573"
+              Start="0,0"
+              End="0,27.428571428573">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.428571428573" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Create warehouse DB.Paths[Output 01]"
+          TopLeft="383.744047619048,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.619047619043"
+              Start="0,0"
+              End="0,34.119047619043">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.119047619043" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Create warehouse DB.Paths[Output 02]"
           TopLeft="161.123015873016,168.777777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15034,7 +15050,7 @@ where [refTable].[City] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[Output 0]"
+          Id="Package\Create warehouse DB.Paths[Output 03]"
           TopLeft="161.011904761905,271.595238095239">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15134,136 +15150,6 @@ where [refTable].[City] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[Aggregate Output 1]"
-          TopLeft="322,448.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="29.5000000000001,52.9999999999999"
-              Start="0,0"
-              End="29.5000000000001,45.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="4,26.5" />
-                  <mssgle:LineSegment
-                    End="25.5000000000001,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25.5000000000001,26.5"
-                    Point2="29.5000000000001,26.5"
-                    Point3="29.5000000000001,30.5" />
-                  <mssgle:LineSegment
-                    End="29.5000000000001,45.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Create warehouse DB\Extract Time Posts"
-          TopLeft="296.857142857143,137" />
-        <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[row3]"
-          TopLeft="383.60119047619,99.0833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.916666666667"
-              Start="0,0"
-              End="0,30.416666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.416666666667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[Output 02]"
-          TopLeft="383.744047619048,179">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.619047619043"
-              Start="0,0"
-              End="0,34.119047619043">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.119047619043" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="199,42"
-          Id="Package\Create warehouse DB\Extract Time Post Actions"
-          TopLeft="656.666666666667,406.333333333334" />
-        <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[Union All Output 1]"
-          TopLeft="757.130952380952,366.119047619044">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.21428571429"
-              Start="0,0"
-              End="0,32.71428571429">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.71428571429" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Create warehouse DB.Paths[Output 03]"
-          TopLeft="758.541666666667,448.333333333334">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.928571428573"
-              Start="0,0"
-              End="0,27.428571428573">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.428571428573" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Create warehouse DB.Paths[Derived Column Output1]"
           TopLeft="567.166666666668,233.261904761905">
           <EdgeLayout.Curve>
@@ -15353,6 +15239,40 @@ where [refTable].[City] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Create warehouse DB.Paths[Aggregate Output 1]"
+          TopLeft="322,448.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.5000000000001,52.9999999999999"
+              Start="0,0"
+              End="29.5000000000001,45.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="25.5000000000001,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5000000000001,26.5"
+                    Point2="29.5000000000001,26.5"
+                    Point3="29.5000000000001,30.5" />
+                  <mssgle:LineSegment
+                    End="29.5000000000001,45.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -15403,11 +15323,11 @@ where [refTable].[City] = ?</property>
         <NodeLayout
           Size="171,42"
           Id="Package\Set users location\OLE DB Destination"
-          TopLeft="424,249" />
+          TopLeft="444,281" />
         <NodeLayout
           Size="180,42"
           Id="Package\Set users location\OLE DB Destination 1"
-          TopLeft="118,246" />
+          TopLeft="77,285" />
         <NodeLayout
           Size="150,42"
           Id="Package\Set users location\OLE DB Source"
@@ -15435,9 +15355,7 @@ where [refTable].[City] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15446,69 +15364,69 @@ where [refTable].[City] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-84,70"
+              EndConnector="-125,109"
               Start="0,0"
-              End="-84,62.5">
+              End="-125,101.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.586387434555" />
+                    End="0,40.5130890052356" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.586387434555"
-                    Point2="0,28.586387434555"
-                    Point3="-4,28.586387434555" />
+                    Point1="0,40.5130890052356"
+                    Point2="0,44.5130890052356"
+                    Point3="-4,44.5130890052356" />
                   <mssgle:LineSegment
-                    End="-80,28.586387434555" />
+                    End="-121,44.5130890052356" />
                   <mssgle:CubicBezierSegment
-                    Point1="-80,28.586387434555"
-                    Point2="-84,28.586387434555"
-                    Point3="-84,32.586387434555" />
+                    Point1="-121,44.5130890052356"
+                    Point2="-125,44.5130890052356"
+                    Point3="-125,48.5130890052356" />
                   <mssgle:LineSegment
-                    End="-84,62.5" />
+                    End="-125,101.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-97.80638671875,33.586387434555,111.6127734375,11.609375"
+              BoundingBox="-118.30638671875,49.5130890052356,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Set users location.Paths[Lookup Match Output]"
-          TopLeft="309.5,176">
+          TopLeft="327,176">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="200,73"
+              EndConnector="202.5,105"
               Start="0,0"
-              End="200,65.5">
+              End="202.5,97.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,38.8795811518325" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.5"
-                    Point2="0,36.5"
-                    Point3="4,36.5" />
+                    Point1="0,38.8795811518325"
+                    Point2="0,42.8795811518325"
+                    Point3="4,42.8795811518325" />
                   <mssgle:LineSegment
-                    End="196,36.5" />
+                    End="198.5,42.8795811518325" />
                   <mssgle:CubicBezierSegment
-                    Point1="196,36.5"
-                    Point2="200,36.5"
-                    Point3="200,40.5" />
+                    Point1="198.5,42.8795811518325"
+                    Point2="202.5,42.8795811518325"
+                    Point3="202.5,46.8795811518325" />
                   <mssgle:LineSegment
-                    End="200,65.5" />
+                    End="202.5,97.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="51.80861328125,41.5,96.3827734375,11.609375"
+              BoundingBox="53.05861328125,47.8795811518325,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
